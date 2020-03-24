@@ -26,12 +26,12 @@ namespace LibraryCatalog
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<LibraryCatalogContext>(options => options
-        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+              .AddDbContext<LibraryCatalogContext>(options => options
+              .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<LibraryCatalogContext>()
-        .AddDefaultTokenProviders();
+              .AddEntityFrameworkStores<LibraryCatalogContext>()
+              .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
       {
