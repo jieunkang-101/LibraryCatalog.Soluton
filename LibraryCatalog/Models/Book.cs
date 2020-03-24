@@ -7,7 +7,6 @@ namespace LibraryCatalog.Models
     public Book()
     {
       this.Authors = new HashSet<AuthorBook>();
-      this.Copies = new HashSet<Copy>();
     }
 
     public int BookId { get; set; }
@@ -16,6 +15,5 @@ namespace LibraryCatalog.Models
     public virtual ApplicationUser User { get; set; }
 
     public ICollection<AuthorBook> Authors { get; set; }
-    public virtual ICollection<Copy> Copies { get; set; }
   }
 }
