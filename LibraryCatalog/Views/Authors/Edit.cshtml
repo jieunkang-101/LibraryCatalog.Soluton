@@ -4,11 +4,16 @@
 
 @model LibraryCatalog.Models.Author
 
-<h3 class="text-center">Add a New Author</h3>
+<h3>Edit</h3>
+
+<h4>Edit this author: @Html.DisplayFor(model => model.AuthorName)</h4>
+
 @using (Html.BeginForm())
 {
+  @Html.HiddenFor(model => model.AuthorId)
+
   @Html.LabelFor(model => model.AuthorName)
   @Html.TextBoxFor(model => model.AuthorName, new {@class = "form-control"})
   <br>
-  <input type="submit" value="Add Author" class="btn btn-dark" />
+  <input type="submit" value="Save" class="btn btn-dark" />
 }
