@@ -11,12 +11,13 @@ using System.Threading.Tasks;
 
 namespace LibraryCatalog.Controllers
 {
-  [Authorize]   public class ItemsController : Controller
-  {
+  [Authorize]  
+    public class BooksController : Controller
+    {
     private readonly LibraryCatalogContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
 
-    public ItemsController(UserManager<ApplicationUser> userManager, LibraryCatalogContext db)
+    public BooksController(UserManager<ApplicationUser> userManager, LibraryCatalogContext db)
     {
       _userManager = userManager;
       _db = db;
@@ -26,6 +27,8 @@ namespace LibraryCatalog.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var userBooks = _db.Books.Where(entry => entry.User.Id == currentUser.Id);
+      List<Book> userBooks = _db.Books.Include(book => book.Authors).ThenInclude(join => join.Author).ToList();
       return View(userBooks);
     }
+  }
+}    
