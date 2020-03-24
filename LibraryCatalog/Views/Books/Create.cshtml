@@ -1,0 +1,29 @@
+@{
+    Layout = "_Layout";
+}
+
+@using LibraryCatalog.Models;
+
+@model LibraryCatalog.Models.Book;
+
+@if(@ViewBag.Authors.Count == 0)
+{
+  <h3 class="card-title text-center">There are no authors yet! Add an author before trying to add a book!</h3>
+  <br>
+  @Html.ActionLink("Add Author","Create","Author", null, new { @class = "btn btn-dark"})
+}
+else
+{
+  <h1 class="card-title text-center">Add a New Book</h1>
+
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title, new {@class = "form-control"})
+    <br>
+    @Html.Label("Author")
+    @Html.DropDownList("AuthorId")
+    <br>
+    <input type="submit" value="Add Book" class="btn btn-dark" />
+  }
+}

@@ -4,6 +4,7 @@
 
 @using LibraryCatalog.Models
 @model List<LibraryCatalog.Models.Book>
+  
 
 <h1>Books</h1>
 
@@ -21,4 +22,4 @@ else
   </ul>
 } 
 
-<p>@Html.ActionLink("Add new book", "Create")</p>
+@Html.ActionLink("Add new book", "Create", null, new { @class = "btn btn-dark"})
