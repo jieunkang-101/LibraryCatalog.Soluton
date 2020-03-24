@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model LibraryCatalog.Models.Author
+
+<h3 class="text-center">Add a New Author</h3>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.AuthorName)
+  @Html.TextBoxFor(model => model.AuthorName, new {@class = "form-control"})
+  <br>
+  <input type="submit" value="Add Author" class="btn btn-dark";>
+}

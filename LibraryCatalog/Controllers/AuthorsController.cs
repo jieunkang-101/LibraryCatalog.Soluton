@@ -33,5 +33,14 @@ namespace LibraryCatalog.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Details(int id)
+    {
+      var thisAuthor = _db.Authors
+          .Include(autour => autour.Books)
+          .ThenInclude(join => join.Book)
+          .FirstOrDefault(author => author.AuthorId == id);
+      return View(thisAuthor);
+    }
+
   }
 }    
