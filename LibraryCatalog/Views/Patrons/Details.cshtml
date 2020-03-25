@@ -13,7 +13,8 @@
 {
   <p>This Patron has no Books checked out.</p>
 }
-<br> 
+else
+{
 <h4>Checked Out Books:</h4>
   @foreach(var join in Model.Copies)
   {
@@ -23,3 +24,5 @@
     }
   }
 }
+
+@Html.ActionLink("Checkout Books", "Create", "Checkouts",  null, new { @class = "btn btn-dark"})
