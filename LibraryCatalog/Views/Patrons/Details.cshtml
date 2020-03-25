@@ -13,3 +13,13 @@
 {
   <p>This Patron has no Books checked out.</p>
 }
+<br> 
+<h4>Checked Out Books:</h4>
+  @foreach(var join in Model.Copies)
+  {
+    @using (Html.BeginForm("DeleteCopy", "Copies"))
+    {
+      @Html.Hidden("joinId", @join.CheckoutId) <input type="submit" value="Delete"/>
+    }
+  }
+}
