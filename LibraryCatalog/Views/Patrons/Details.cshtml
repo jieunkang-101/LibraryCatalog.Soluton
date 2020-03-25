@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@using LibraryCatalog.Models;
+@model LibraryCatalog.Models.Patron
+
+<h2>Patron Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.PatronName): @Html.DisplayFor(model => model.PatronName)</h3>
+
+@if(@Model.Copies.Count == 0)
+{
+  <p>This Patron has no Books checked out.</p>
+}

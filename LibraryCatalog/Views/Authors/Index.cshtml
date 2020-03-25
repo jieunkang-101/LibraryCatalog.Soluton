@@ -18,4 +18,4 @@
   <li>@Html.ActionLink($"{author.AuthorName}", "Details", new { id = author.AuthorId })</li>
 }
 
-<p>@Html.ActionLink("Add new author", "Create")</p>
+@Html.ActionLink("Add new author", "Create", null, new { @class = "btn btn-dark"})
