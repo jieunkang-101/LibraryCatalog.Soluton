@@ -17,3 +17,18 @@ A Program to catalog a library's books and let patrons chech them out
 * As a patron, I want to know when a book I checked out is due, so that I know when to return it.
 As a librarian, I want to see a list of overdue books, so that I can call up the patron who checked them out and tell them to bring them back
 
+## Technologies Used
+* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
+* [.NET](https://dotnet.microsoft.com/)
+* [ASP.NET Core MVC](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-3.1)
+* [MySQL](https://www.mysql.com/)
+* [MySQL Workbench](https://www.mysql.com/products/workbench/)
+* [Entity Framework Core](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-2.2)
+* [Identity](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-2.2&tabs=visual-studio)
+* [Bootstrap v4.4](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
+
+### License
+
+*This webpage is licensed under the [MIT](https://en.wikipedia.org/wiki/MIT_License) license*
+
+Copyright (c) 2020 **_Jieun Kang_**
