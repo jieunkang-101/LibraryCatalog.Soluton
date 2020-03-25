@@ -40,77 +40,76 @@ namespace LibraryCatalog.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult Details(int id)
-    // {
-    //   // Item thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   // return View(thisItem);
-    //   var thisItem = _db.Items
-    //       .Include(item => item.Categories)
-    //       .ThenInclude(join => join.Category)
-    //       .FirstOrDefault(item => item.ItemId == id);
-    //   return View(thisItem);
+    public ActionResult Details(int id)
+    {
+      var thisBook = _db.Books
+          .Include(book => book.Authors)
+          .ThenInclude(join => join.Author)
+          .FirstOrDefault(book => book.BookId == id);
+      return View(thisBook);
 
-    // }
+    }
 
-    // public ActionResult Edit(int id)
-    // {
-    //   var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //   return View(thisItem);
-    // }
+    public ActionResult Edit(int id)
+    {
+      var thisBook = _db.Books.FirstOrDefault(books => books.BookId == id);
+      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "AuthorName");
+      return View(thisBook);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Item item, int CategoryId)
-    // {
-    //   if (CategoryId != 0)
-    //   {
-    //     _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-    //   }
-    //   _db.Entry(item).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Edit(Book book, int AuthorId)
+    {
+      if (AuthorId != 0)
+      {
+        _db.AuthorBook.Add(new AuthorBook() { AuthorId = AuthorId, BookId = book.BookId });
+      }
+      _db.Entry(book).State = EntityState.Modified;
+      //_db.Books.Add(book);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // public ActionResult AddCategory(int id)
-    // {
-    //   var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-    //   return View(thisItem);
-    // }
+    public ActionResult AddAuthor(int id)
+    {
+      var thisBook = _db.Books.FirstOrDefault(books => books.BookId == id);
+      ViewBag.AuthorId = new SelectList(_db.Authors, "AuthorId", "AuthorName");
+      return View(thisBook);
+    }
 
-    // [HttpPost]
-    // public ActionResult AddCategory(Item item, int CategoryId)
-    // {
-    //   if (CategoryId != 0)
-    //   {
-    //   _db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-    //   }
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult AddAuthor(Book book, int AuthorId)
+    {
+      if (AuthorId != 0)
+      {
+      _db.AuthorBook.Add(new AuthorBook() { AuthorId = AuthorId, BookId = book.BookId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // public ActionResult Delete(int id)
-    // {
-    //   var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   return View(thisItem);
-    // }
+    public ActionResult Delete(int id)
+    {
+      var thisBook = _db.Books.FirstOrDefault(books => books.BookId == id);
+      return View(thisBook);
+    }
 
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   var thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
-    //   _db.Items.Remove(thisItem);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisBook = _db.Books.FirstOrDefault(books => books.BookId == id);
+      _db.Books.Remove(thisBook);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
-    // [HttpPost]
-    // public ActionResult DeleteCategory(int joinId)
-    // {
-    //   var joinEntry = _db.CategoryItem.FirstOrDefault(entry => entry.CategoryItemId == joinId);
-    //   _db.CategoryItem.Remove(joinEntry);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult DeleteAuthor(int joinId)
+    {
+      var joinEntry = _db.AuthorBook.FirstOrDefault(entry => entry.AuthorBookId == joinId);
+      _db.AuthorBook.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }

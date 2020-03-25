@@ -2,6 +2,6 @@
   Layout = "_Layout";
 }
 
-<p>@Html.ActionLink("See all books", "Index", "Books")</p>
-<p>@Html.ActionLink("See all authors", "Index", "Authors")</p>
-<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+@Html.ActionLink("See all books", "Index", "Books", null, new { @class = "btn btn-dark"})
+@Html.ActionLink("See all authors", "Index", "Authors", null, new { @class = "btn btn-dark"})
+@Html.ActionLink("Create an account", "Index", "Account", null, new { @class = "btn btn-dark"})

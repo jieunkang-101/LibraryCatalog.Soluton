@@ -7,12 +7,12 @@
 
 <h2>Author Details</h2>
 <hr />
-<h4>@Html.DisplayNameFor(model => model.AuthorName): @Html.DisplayFor(model => model.AuthorName)</h4>
+<h4>@Html.DisplayName("Author Name"): @Html.DisplayFor(model => model.AuthorName)</h4>
 <h4>Books:</h4>
 
 @if(@Model.Books.Count == 0)
 {
-   <h4><i>The Database contains no books linked to this Author at this time.</i></h4>
+   <h5><i>The Database contains no books linked to this Author at this time.</i></h5>
 }
 else
 {
@@ -23,7 +23,8 @@ else
   }
   </ul>
 }
-
-
+<br>
+<hr>
+@Html.ActionLink("Add new book", "Create", "Books", null, new { @class = "btn btn-dark"})
 @Html.ActionLink("Edit Author", "Edit", new { id = Model.AuthorId }, new { @class = "btn btn-dark"})
 @Html.ActionLink("Delete Author", "Delete", new { id = Model.AuthorId }, new { @class = "btn btn-dark"})

@@ -2,13 +2,13 @@
     Layout = "_Layout";
 }
 
-@using LibraryCatalog.Models;
+@using LibraryCatalog.Models
 
-@model LibraryCatalog.Models.Book;
+@model LibraryCatalog.Models.Book
 
 @if(@ViewBag.Authors.Count == 0)
 {
-  <h3 class="card-title text-center">There are no authors yet! Add an author before trying to add a book!</h3>
+  <h3 class="text-center">There are no authors yet! Add an author before trying to add a book!</h3>
   <br>
   @Html.ActionLink("Add Author","Create","Author", null, new { @class = "btn btn-dark"})
 }

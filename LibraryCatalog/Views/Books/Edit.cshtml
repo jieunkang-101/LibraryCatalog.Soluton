@@ -1,0 +1,25 @@
+@{
+    Layout = "_Layout";
+}
+
+@using LibraryCatalog.Models
+
+@model LibraryCatalog.Models.Book
+
+<h2>Edit</h2>
+<hr>
+<h4>Edit this Book: @Html.DisplayFor(model => model.Title)</h4>
+<br>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.BookId)
+
+  @Html.LabelFor(model => model.Title)
+  @Html.TextBoxFor(model => model.Title, new {@class = "form-control"})
+  <br>
+  @Html.Label("Author")
+  @Html.DropDownList("AuthorId")
+  <br>
+  <input type="submit" value="Save" class="btn btn-dark" />
+}
+
