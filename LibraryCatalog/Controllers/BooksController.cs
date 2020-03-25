@@ -119,3 +119,28 @@ namespace LibraryCatalog.Controllers
     }
   }
 }
+
+
+// public ActionResult Index()
+// {
+// // original LINQ query with .ToList()
+// List<Category> model = _db.Categories.ToList();
+
+// // using EF.Functions.Like() 
+// List<Category> model = _db.Categories.Where(c => 
+// EF.Functions.Like(c.Name, "h%")).ToList();
+
+// // using the System.Linq.Ennumerable.Where() with String.Contains()
+// List<Category> model = _db.Categories.Where(c => c.Name.Contains("fun")).ToList();
+
+// // using the System.Linq.Ennumerable.Where() with String.StartsWith()
+// List<Category> model = _db.Categories.Where(c => c.Name.StartsWith("h")).ToList();
+
+// // using LINQ query expression AND // EF.Functions.Like()
+// var model = (from c in _db.Categories
+//             where EF.Functions.Like(c.Name, "h%")
+//             select c)
+//             .ToList();
+
+// return View(model);
+// }
