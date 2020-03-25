@@ -2,6 +2,13 @@
   Layout = "_Layout";
 }
 
+@using (Html.BeginForm("SearchBook","Books")) 
+{
+  @Html.TextBox("SearchBook", null, new {@class="form-control"})
+  <br>
+  <input type="submit" value="Search Catalog by Title" class="btn btn-outline-dark">
+}
+<br>
 @Html.ActionLink("See all books", "Index", "Books", null, new { @class = "btn btn-dark"})
 @Html.ActionLink("See all authors", "Index", "Authors", null, new { @class = "btn btn-dark"})
 @Html.ActionLink("Create an account", "Index", "Account", null, new { @class = "btn btn-dark"})
