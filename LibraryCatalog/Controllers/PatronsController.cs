@@ -31,5 +31,20 @@ namespace LibraryCatalog.Controllers
       return View(userPatron);
     }
 
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Create(Patron patron)
+    {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      patron.User = currentUser;
+      _db.Patrons.Add(patron);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }    

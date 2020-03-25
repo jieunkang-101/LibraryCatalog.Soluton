@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model LibraryCatalog.Models.Patron
+
+<h4>Add a New Patron</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.PatronName)
+  @Html.TextBoxFor(model => model.PatronName, new {@class = "form-control"})
+  <br>
+  <input type="submit" value="Add Patron" class="btn btn-dark" />
+}
