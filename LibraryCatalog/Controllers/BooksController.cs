@@ -46,6 +46,7 @@ namespace LibraryCatalog.Controllers
           .Include(book => book.Authors)
           .ThenInclude(join => join.Author)
           .FirstOrDefault(book => book.BookId == id);
+      ViewBag.AvailableCopies = _db.Copies.Where(copy => copy.BookId == id && copy.Available == true).ToList();    
       return View(thisBook);
 
     }
