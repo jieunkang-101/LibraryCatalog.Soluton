@@ -20,6 +20,9 @@
             <li class="nav-item">
               <p>@Html.ActionLink("Authors", "Index", "Authors", null, new { @class ="nav-link"})</p>
             </li>
+            <li class="nav-item">
+              <p>@Html.ActionLink("Patrons", "Index", "Patrons", null, new { @class ="nav-link"})</p>
+            </li>
           </ul>
         </div>
         @if(User.Identity.IsAuthenticated)

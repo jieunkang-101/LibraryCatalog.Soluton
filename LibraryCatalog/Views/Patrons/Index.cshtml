@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@using LibraryCatalog.Models
+@model IEnumerable<LibraryCatalog.Models.Patron>
+
+<br>
+<h2>Patrons</h2>
+<hr>
+<br>
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Patron patron in Model)
+    {
+      <h5><li>@Html.ActionLink($"{patron.PatronName}", "Details", new { id = patron.PatronId })</li></h5>
+    }
+  </ul>
+}
+else
+{
+  <h3>There are no Patrons in the Database at this time.</h3>
+}
+<br>
+<hr>
+@Html.ActionLink("Checkout Books", "Create", "Checkouts",  null, new { @class = "btn btn-dark"})
